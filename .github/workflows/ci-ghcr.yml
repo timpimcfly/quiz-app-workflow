@@ -18,29 +18,24 @@ jobs:
       - name: Checkout repository
         # TODO: Nutze die actions/checkout Action
         uses: actions/checkout@v4
-        run: echo "TODO"
 
       - name: Setup Node.js
         # TODO: Nutze die actions/setup-node Action (Node Version 20 ist gut)
         uses: actions/setup-node@v4
         with:
           node-version: 20
-        run: echo "TODO"
 
       - name: Install dependencies
         # TODO: Welcher npm Befehl installiert Pakete?
         run: npm ci
-        run: echo "TODO"
 
       - name: Run lint
         # TODO: Welcher npm Befehl startet den Linter? (Schau in die package.json!)
         run: npm run lint
-        run: echo "TODO"
 
       - name: Run tests
         # TODO: Welcher npm Befehl startet die Tests? (Schau in die package.json!)
         run: npm test
-        run: echo "TODO"
 
   docker:
     name: Build und Push Docker Images
@@ -55,7 +50,6 @@ jobs:
       - name: Checkout repository
         # TODO: Nutze die actions/checkout Action
         uses: actions/checkout@v4
-        run: echo "TODO"
 
       # --- AB HIER HILFT EUCH DAS SKELETON ---
       # Dieser Schritt generiert Variablen für die Image-Namen (alles kleingeschrieben)
@@ -74,7 +68,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-        run: echo "TODO"
 
       - name: Build and push web image
         # TODO: Nutze docker/build-push-action
@@ -91,7 +84,6 @@ jobs:
           tags: |
             ghcr.io/${{ steps.image-vars.outputs.owner_lc }}/quiz-web:${{ steps.image-vars.outputs.short_sha }}
             ghcr.io/${{ steps.image-vars.outputs.owner_lc }}/quiz-web:latest
-        run: echo "TODO"
 
       - name: Build and push api image
         # TODO: Nutze docker/build-push-action analog zum web-image! (Achtung, Context und File sind anders!)
@@ -103,4 +95,3 @@ jobs:
           tags: |
             ghcr.io/${{ steps.image-vars.outputs.owner_lc }}/quiz-api:${{ steps.image-vars.outputs.short_sha }}
             ghcr.io/${{ steps.image-vars.outputs.owner_lc }}/quiz-api:latest
-        run: echo "TODO"
