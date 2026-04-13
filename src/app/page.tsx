@@ -11,7 +11,6 @@ export default function Home() {
   const [topics, setTopics] = useState<TopicSummary[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const debugTitle = "Quiz Debug"; // deleteMe
 
   useEffect(() => {
     let active = true;

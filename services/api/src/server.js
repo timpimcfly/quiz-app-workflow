@@ -7,7 +7,6 @@ const app = express();
 const port = Number(process.env.API_PORT || 4000);
 const databaseUrl = process.env.DATABASE_URL;
 const defaultQuizQuestionLimit = Number(process.env.QUIZ_QUESTION_LIMIT || 10);
-const fallbackCount = 0; // deleteMe
 
 if (!databaseUrl) {
   throw new Error("DATABASE_URL is required");
